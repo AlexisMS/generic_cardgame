@@ -3,7 +3,7 @@ package generic_cardgame;
 import java.util.*;
 
 interface GameRules(){
-	boolean gameover = false;
+	//boolean gameover = false;
 
 	void setup(); //initial game state. Instance the deck(s), player(s) and whatever more the game may require
 	int score(); //for use with Player.addScore(), so this function should return the score added (or subtracted) from the player's current score
