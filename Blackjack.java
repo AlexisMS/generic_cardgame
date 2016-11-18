@@ -21,6 +21,15 @@ class Blackjack implements GameRules{
 		deck = new Deck();
 	}
 
+	void reset(){
+		player.resetHand();
+		player.resetScore();
+		player.defeat();
+		dealer.resetHand();
+		dealer.resetScore();
+		deck.resetDeck();
+	}
+
 	@Override
 	int score(int score, ArrayList<String> playerhand){
 		int new_score = 0;
@@ -86,18 +95,23 @@ class Blackjack implements GameRules{
 				dealer.addScore(this.score(dealer.getScore(),dealer.getHandList()));
 			}
 			if ((dealer.getScore()>21) && (player.getScore()<=21))
-				//player wins!
+				player.victory();
 			else if (dealer.getScore() < player.getScore())
-				//player wins!
+				player.victory();
 			else if (dealer.getScore() > player.getScore())
-				//player loses.
+				player.defeat();
 		}
 		else {
 			if(player.getScore()==21)
-				//player wins!
+				player.victory();
 			else if (player.getScore()>21)
-				//player loses.
+				player.defeat();
 		}
+		return player.getStatus();
+	}
 
+	void hit(){
+		player.addHand(deck.drawCard());
+		player.addScore(this.score(player.getScore(),player.getHandList()));
 	}
 }
