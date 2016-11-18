@@ -79,7 +79,25 @@ class Blackjack implements GameRules{
 	}
 
 	@Override
-	boolean endgame(){
+	boolean endgame(boolean mode){ //mode parameter: true if it's necessary to check the dealer's score, false if it's not
+		if (mode){
+			while (dealer.getScore()<17){
+				dealer.addHand(deck.drawCard());
+				dealer.addScore(this.score(dealer.getScore(),dealer.getHandList()));
+			}
+			if ((dealer.getScore()>21) && (player.getScore()<=21))
+				//player wins!
+			else if (dealer.getScore() < player.getScore())
+				//player wins!
+			else if (dealer.getScore() > player.getScore())
+				//player loses.
+		}
+		else {
+			if(player.getScore()==21)
+				//player wins!
+			else if (player.getScore()>21)
+				//player loses.
+		}
 
 	}
 }
