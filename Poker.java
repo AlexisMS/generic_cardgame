@@ -1,3 +1,5 @@
+//(most of) this file was written by Valdivino Morais
+
 //package poker;
 
 import java.util.*;
@@ -16,14 +18,14 @@ ArrayList<String> dealerhand = rules.getDealerHand();
 ArrayList<String> cartas1 = new ArrayList<String>();
 	for (int i = 0; i<2; i++){
 		cartas1.add(playerhand.get(i));
-	}	
+	}
 	for (int i = 0; i<5; i++){
 		cartas1.add(dealerhand.get(i));
 	}
 ArrayList<String> cartas2 = new ArrayList<String>();
 	for (int i = 2; i<4; i++){
 		cartas2.add(playerhand.get(i));
-	}	
+	}
 	for (int i = 0; i<5; i++){
 		cartas2.add(dealerhand.get(i));
 	}
@@ -41,6 +43,3 @@ System.out.println(result);
 }
 
 }
-
-
-

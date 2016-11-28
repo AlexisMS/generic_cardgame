@@ -1,3 +1,5 @@
+//this file was written by Valdivino Morais
+
 //package poker;
 
 import java.util.*;
@@ -38,10 +40,10 @@ public class ValorMao {
 			valorMao = "royalFlush";
 		}else{
 			if(checarStraightFlush() == "straightFlush"){
-				valorMao = "straightFlush"; 
+				valorMao = "straightFlush";
 			}else{
 				if(checarQuadra() == "quadra"){
-					valorMao = "quadra"; 
+					valorMao = "quadra";
 				}else{
 					if(checarFullHouse() == "fullHouse"){
 						valorMao = "fullHouse";
@@ -61,7 +63,7 @@ public class ValorMao {
 										if(checarDupla() == "dupla"){
 											valorMao = "dupla";
 										}else{
-											valorMao = checarMaiorCarta(); 
+											valorMao = checarMaiorCarta();
 										}
 									}
 								}
@@ -134,7 +136,7 @@ public class ValorMao {
 	String checarFullHouse(){
 		String result = "nao";
 		if((checarTrinca().equals("trinca"))&&((checarDupla().equals("dupla"))||(checarDuasDuplas().equals("duasDuplas")))){
-			result = "fullHouse"; 
+			result = "fullHouse";
 		}
 		return result;
 	}
@@ -219,14 +221,14 @@ public class ValorMao {
 			}else if((""+carta[i].charAt(0)).equals("Q")){
 				mao[i] = 12;
 			}else if((""+carta[i].charAt(0)).equals("J")){
-				mao[i] = 11; 
+				mao[i] = 11;
 			}else{
 				if(((""+carta[i].charAt(0)).equals("1"))&&((""+carta[i].charAt(1)).equals("0"))){
 					mao[i] = 10;
-				}else{ 
+				}else{
 					mao[i] = Integer.parseInt(""+carta[i].charAt(0));
-				} 
-			} 
+				}
+			}
 		}
 		return mao;
 	}
@@ -235,7 +237,7 @@ public class ValorMao {
 		for(int i = 0; i < 7; i++){
 			if(((""+carta[i].charAt(0)).equals("1"))&&((""+carta[i].charAt(1)).equals("0"))){
 				mao[i] = ""+carta[i].charAt(2);
-			}else{ 
+			}else{
 				mao[i] = ""+carta[i].charAt(1);
 			}
 		}

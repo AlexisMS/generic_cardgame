@@ -1,3 +1,5 @@
+//this file was written by Valdivino Morais
+
 //package poker;
 
 public class ComparaDuasMaos {
@@ -16,7 +18,7 @@ public class ComparaDuasMaos {
 		}else{
 			return "*** Jogador1: "+mao1+ " ***** Jogador2: "+mao2+" *** \n"
 			+ "Jogador1 venceu";
-		} 
+		}
 	}
 	int valorInteiroMao(String mao){
 		int n;
