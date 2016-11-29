@@ -64,7 +64,7 @@ class Main {
 	    buttons.add(b=new JButton("play"));
 
 	    //b.addActionListener(new Action(buttons,card1,card2,card3,card4,card5, card1d,card2d,card3d,card4d,card5d, left,right,r,b,end,tela,rules));
-			b.addActionListener(new Action(buttons,card1,card2,card3,card4,card5, card1d,card2d,card3d,card4d,card5d,r,b,end,tela,rules));
+			b.addActionListener(new PokerStep(buttons,card1,card2,card3,card4,card5, card1d,card2d,card3d,card4d,card5d,r,b,end,tela,rules));
 
 
 	}
