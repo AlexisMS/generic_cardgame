@@ -43,7 +43,7 @@ class Main {
 	    //JLabel left = new JLabel("DEALER");
 	    //JLabel right = new JLabel("YOU");
 	    JButton end = new JButton("STOP");
-	    Blackjack rules = new Rules();
+	    Rules rules = new Rules();
 
 	    tela.setLayout(new BorderLayout(10,10));
 	    tela.add(playarea,BorderLayout.CENTER);

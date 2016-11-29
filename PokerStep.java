@@ -11,7 +11,7 @@ class PokerStep implements ActionListener{
 	JButton end;
 	JPanel tela;
 
-	Blackjack rules;
+	Rules rules;
 
 	JLabel card1;
 	JLabel card2;
@@ -25,11 +25,14 @@ class PokerStep implements ActionListener{
 	JLabel card5d;
 	JPanel buttons;
 	private int currentcard = 0;
-	private int dealerhandsize = 6;
+	private int dealerhandsize = 5;
+  private int playerhandsize = 4;
 	ArrayList<String> dealerhand;
+  ArrayList<String> playerhand;
 	ImageIcon imagemCarta;
+  ImageIcon cardback;
 
-	EndGame(
+	PokerStep(
 			JPanel buttons,
 			JLabel card1, JLabel card2, JLabel card3, JLabel card4, JLabel card5,
 			JLabel card1d, JLabel card2d, JLabel card3d, JLabel card4d, JLabel card5d,
@@ -37,7 +40,7 @@ class PokerStep implements ActionListener{
 			JLabel r,
 			JButton b, JButton end,
 			JPanel tela,
-			Blackjack rules
+			Rules rules
 			){
 		this.buttons = buttons;
 		this.card1 = card1;
@@ -50,8 +53,8 @@ class PokerStep implements ActionListener{
 		this.card3d = card3d;
 		this.card4d = card4d;
 		this.card5d = card5d;
-		this.left = left;
-		this.right = right;
+		//this.left = left;
+		// this.right = right;
 		this.r = r;
 		this.b = b;
 		this.end = end;
@@ -91,10 +94,38 @@ class PokerStep implements ActionListener{
 			}
 			currentcard++;
 		}
-		dealerhandsize = 1;
+		//dealerhandsize = 1;
 		currentcard = 0;
 
-		tela.add(left, BorderLayout.LINE_START);
+    cardback = new ImageIcon("img/capa2.png");
+    card3.setIcon(cardback);
+
+    playerhand = rules.getPlayerHand();
+    while(currentcard<playerhandsize){
+	    	imagemCarta = new ImageIcon("img/" + dealerhand.get(currentcard) + ".png");
+			switch(currentcard){
+				case 0:
+					card1.setIcon(imagemCarta);
+					break;
+				case 1:
+					card2.setIcon(imagemCarta);
+					break;
+				case 2:
+					card4.setIcon(imagemCarta);
+					break;
+				case 3:
+					card5.setIcon(imagemCarta);
+					break;
+				case 4:
+					//card5.setIcon(imagemCarta);
+					break;
+				default:
+					break;
+			}
+			currentcard++;
+		}
+		currentcard = 0;
+		/*tela.add(left, BorderLayout.LINE_START);
 		left.setText("DEALER: " + String.valueOf(rules.getDealerScore()));
 
 		tela.add(right, BorderLayout.LINE_END);
@@ -109,7 +140,8 @@ class PokerStep implements ActionListener{
 		}
 		else{
 			r.setText("DRAW");
-		}
+		}*/
+		r.setText(rules.getResult());
 		tela.repaint();
 	}
 }
