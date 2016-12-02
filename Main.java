@@ -16,7 +16,7 @@ class Main {
 	    f.setContentPane(tela);
 	    configTela(tela);
 	    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    f.setSize(800,600); //lar x alt
+	    f.setSize(1600,600); //lar x alt
 	    f.setVisible(true);
 		}
 
@@ -45,8 +45,6 @@ class Main {
 	    JLabel left = new JLabel("DEALER");
 	    JLabel right = new JLabel("YOU");
 	    JButton end = new JButton("STOP");
-	    //Player player = new Player();
-	    //Dealer dealer = new Dealer();
 	    Blackjack rules = new Blackjack();
 
 	    tela.setLayout(new BorderLayout(10,10));
