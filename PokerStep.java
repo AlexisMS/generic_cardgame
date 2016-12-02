@@ -4,8 +4,8 @@ import java.awt.event.*;
 import java.util.*;
 
 class PokerStep implements ActionListener{
-	//JLabel left;
-	//JLabel right;
+	JLabel left;
+	JLabel right;
 	JLabel r;
 	JButton b;
 	JButton end;
@@ -26,17 +26,17 @@ class PokerStep implements ActionListener{
 	JPanel buttons;
 	private int currentcard = 0;
 	private int dealerhandsize = 5;
-  private int playerhandsize = 4;
+	private int playerhandsize = 4;
 	ArrayList<String> dealerhand;
-  ArrayList<String> playerhand;
+	ArrayList<String> playerhand;
 	ImageIcon imagemCarta;
-  ImageIcon cardback;
+	ImageIcon cardback;
 
 	PokerStep(
 			JPanel buttons,
 			JLabel card1, JLabel card2, JLabel card3, JLabel card4, JLabel card5,
 			JLabel card1d, JLabel card2d, JLabel card3d, JLabel card4d, JLabel card5d,
-			//JLabel left, JLabel right,
+			JLabel left, JLabel right,
 			JLabel r,
 			JButton b, JButton end,
 			JPanel tela,
@@ -53,8 +53,8 @@ class PokerStep implements ActionListener{
 		this.card3d = card3d;
 		this.card4d = card4d;
 		this.card5d = card5d;
-		//this.left = left;
-		// this.right = right;
+		this.left = left;
+		this.right = right;
 		this.r = r;
 		this.b = b;
 		this.end = end;
@@ -64,11 +64,9 @@ class PokerStep implements ActionListener{
 
 	public void actionPerformed(ActionEvent e){
 		//buttons.remove(end);
-		buttons.remove(b); //temp
-		/*while (rules.getDealerScore()<17){
-			rules.dealerHit();
-			dealerhandsize++;
-		}*/
+		//buttons.remove(b); //temp
+		rules.reset();
+		rules.setup();
 		dealerhand = rules.getDealerHand();
 
 		while(currentcard<dealerhandsize){
@@ -102,7 +100,7 @@ class PokerStep implements ActionListener{
 
     playerhand = rules.getPlayerHand();
     while(currentcard<playerhandsize){
-	    	imagemCarta = new ImageIcon("img/" + dealerhand.get(currentcard) + ".png");
+	    	imagemCarta = new ImageIcon("img/" + playerhand.get(currentcard) + ".png");
 			switch(currentcard){
 				case 0:
 					card1.setIcon(imagemCarta);
@@ -125,22 +123,11 @@ class PokerStep implements ActionListener{
 			currentcard++;
 		}
 		currentcard = 0;
-		/*tela.add(left, BorderLayout.LINE_START);
-		left.setText("DEALER: " + String.valueOf(rules.getDealerScore()));
 
+		tela.add(left, BorderLayout.LINE_START);
+		left.setText(rules.getPlayer1());
 		tela.add(right, BorderLayout.LINE_END);
-		right.setText("YOU: " + String.valueOf(rules.getPlayerScore()));
-
-    	//checks for win/lose conditions that require comparing the score of the player with the score of the dealer
-		if ((rules.getPlayerScore()>rules.getDealerScore() && rules.getPlayerScore()<22) || rules.getDealerScore()>21){
-			r.setText("YOU WIN");
-		}
-		else if (rules.getPlayerScore()<rules.getDealerScore() && rules.getDealerScore()<22){
-			r.setText("YOU LOSE");
-		}
-		else{
-			r.setText("DRAW");
-		}*/
+		right.setText(rules.getPlayer2());
 		r.setText(rules.getResult());
 		tela.repaint();
 	}

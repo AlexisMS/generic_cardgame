@@ -13,7 +13,6 @@ public class ValorMao {
 
 //mudar
 	public ValorMao(ArrayList<String> cartaLista) {
-//super();
 		this.reset(cartaLista);
 	}
 

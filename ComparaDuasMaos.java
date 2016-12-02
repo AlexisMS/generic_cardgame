@@ -6,20 +6,30 @@ public class ComparaDuasMaos {
 	String mao1 = "", mao2 = "";
 
 	public ComparaDuasMaos(String mao1, String mao2) {
-		//super();
+		this.reset(mao1, mao2);
+	}
+
+	void reset(String mao1, String mao2){
 		this.mao1 = mao1;
 		this.mao2 = mao2;
 	}
 
 	String comparaMaos(){
 		if(valorInteiroMao(mao1)<valorInteiroMao(mao2)){
-			return "*** Jogador1: "+mao1+ " ***** Jogador2: "+mao2+" *** \n"
-			+ "Jogador2 venceu";
+			return "Jogador2 venceu";
 		}else{
-			return "*** Jogador1: "+mao1+ " ***** Jogador2: "+mao2+" *** \n"
-			+ "Jogador1 venceu";
+			return "Jogador1 venceu";
 		}
 	}
+
+	String getMao1(){
+		return "Jogador 1: " +mao1;
+	}
+
+	String getMao2(){
+		return "Jogador 2: " +mao2;
+	}
+
 	int valorInteiroMao(String mao){
 		int n;
 		if(mao.equals("royalFlush")){
