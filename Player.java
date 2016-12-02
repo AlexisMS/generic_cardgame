@@ -1,16 +1,14 @@
-package generic_cardgame;
+//package generic_cardgame;
 
 import java.util.*;
 
 class Player{
-	private int score;
-	private ArrayList<String> hand;
-	private boolean status; //is this person a winner? (y/n)
+	int score;
+	ArrayList<String> hand;
 
 	Player(){
 		score = 0;
 		hand = new ArrayList<String>();
-		status = false; //you're a loser until proven otherwise
 	}
 
 	/*
@@ -47,22 +45,6 @@ class Player{
 
 	void resetScore(){
 		score = 0;
-	}
-
-	/*
-	* STATUS FUNCTIONS
-	*/
-
-	void victory(){
-		this.status = true;
-	}
-
-	void defeat(){
-		this.status = false;
-	}
-
-	boolean getStatus(){
-		return status;
 	}
 	
 }
