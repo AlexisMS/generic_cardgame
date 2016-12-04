@@ -3,22 +3,34 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.PrintWriter;
 
-class Main {
+class PokerMain implements ActionListener {
 
-	public static void main (String[] args){
-		JFrame f;
-	    f = new JFrame();
-	    JPanel tela;
-	    tela = new JPanel();
+	JPanel tela;
+	JPanel options;
+	JLabel title;
 
-	    f.setContentPane(tela);
-	    configTela(tela);
-	    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    f.setSize(1600,600); //lar x alt
-	    f.setVisible(true);
-		}
+	PokerMain(JPanel tela, JPanel options, JLabel title){
+		this.tela = tela;
+		this.options = options;
+		this.title = title;
+	}
 
-	static void configTela(JPanel tela){
+	// public static void main (String[] args){
+	// 	JFrame f;
+	//     f = new JFrame();
+	//     JPanel tela;
+	//     tela = new JPanel();
+
+	//     f.setContentPane(tela);
+	//     configTela(tela);
+	//     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	//     f.setSize(1600,600); //lar x alt
+	//     f.setVisible(true);
+	// 	}
+
+	public void actionPerformed(ActionEvent e){
+		tela.remove(options);
+		tela.remove(title);
 		JPanel playarea = new JPanel();
 	  	playarea.setLayout(new BorderLayout(10,10));
 

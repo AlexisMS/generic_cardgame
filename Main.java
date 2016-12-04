@@ -28,8 +28,8 @@ class Main {
 		JPanel options = new JPanel();
 		JButton b_blackjack = new JButton("BLACKJACK");
 		JButton b_poker = new JButton("Poker");
-		options.add(b_blackjack);
 		b_blackjack.addActionListener(new BlackjackMain(tela,options,title));
+		options.add(b_blackjack);
 		options.add(b_poker);
 		tela.add(options, BorderLayout.PAGE_END);
 
