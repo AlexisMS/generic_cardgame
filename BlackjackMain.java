@@ -18,8 +18,8 @@ class BlackjackMain implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e){
-		//tela.remove(options);
-		//tela.remove(title);
+		tela.remove(options);
+		tela.remove(title);
 		JPanel playarea = new JPanel();
 	  	playarea.setLayout(new BorderLayout(10,10));
 
@@ -65,6 +65,6 @@ class BlackjackMain implements ActionListener {
 	    buttons.add(b=new JButton("play"));
 
 	    b.addActionListener(new Action(buttons,card1,card2,card3,card4,card5, card1d,card2d,card3d,card4d,card5d, left,right,r,b,end,tela,rules));
-
+	    tela.repaint();
 	}
 }

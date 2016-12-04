@@ -78,6 +78,6 @@ class PokerMain implements ActionListener {
 
 		b.addActionListener(new PokerStep(buttons,card1,card2,card3,card4,card5, card1d,card2d,card3d,card4d,card5d,left,right,r,b,end,tela,rules));
 
-
+		tela.repaint();
 	}
 }
