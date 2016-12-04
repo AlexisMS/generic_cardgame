@@ -35,31 +35,31 @@ public class ValorMao {
 	String classificaMao(){
 		String valorMao;
 		valorMao = "";
-		if(checarRoyalFlush() == "royalFlush"){
+		if(checarRoyalFlush()){
 			valorMao = "royalFlush";
 		}else{
-			if(checarStraightFlush() == "straightFlush"){
+			if(checarStraightFlush()){
 				valorMao = "straightFlush";
 			}else{
-				if(checarQuadra() == "quadra"){
+				if(checarQuadra()){
 					valorMao = "quadra";
 				}else{
-					if(checarFullHouse() == "fullHouse"){
+					if(checarFullHouse()){
 						valorMao = "fullHouse";
 					}else{
-						if(checarFlush() == "flush"){
+						if(checarFlush()){
 							valorMao = "flush";
 						}else{
-							if(checarSequencia() == "sequencia"){
+							if(checarSequencia()){
 								valorMao = "sequencia";
 							}else{
-								if(checarTrinca() == "trinca"){
+								if(checarTrinca()){
 									valorMao = "trinca";
 								}else{
-									if(checarDuasDuplas() == "duasDuplas"){
+									if(checarDuasDuplas()){
 										valorMao = "duasDuplas";
 									}else{
-										if(checarDupla() == "dupla"){
+										if(checarDupla()){
 											valorMao = "dupla";
 										}else{
 											valorMao = checarMaiorCarta();
@@ -74,13 +74,11 @@ public class ValorMao {
 		}
 		return valorMao;
 	}
-	String checarRoyalFlush(){
-		if(((checarMaiorCarta()).equals("14"))&&(checarStraightFlush().equals("straightFlush"))){
-			return "royalFlush";
-		}else{
-			return "nao";
-		}
+
+	Boolean checarRoyalFlush(){
+		return((checarMaiorSequencia() == 14)&&(checarStraightFlush()));
 	}
+
 	String checarMaiorCarta(){
 		int[] a = new int[7];
 		a = arrayNumeroCarta();
@@ -88,14 +86,12 @@ public class ValorMao {
 		int n = a[6];
 		return ""+n;
 	}
-	String checarStraightFlush(){
-		if((checarFlush().equals("flush"))&&(checarSequencia().equals("sequencia"))){
-			return "straightFlush";
-		}else{
-			return "nao";
-		}
+
+	Boolean checarStraightFlush(){
+		return((checarFlush())&&(checarSequencia()));
 	}
-	String checarFlush(){
+
+	Boolean checarFlush(){
 		String[] a = new String[7];
 		a = arrayNaipeCarta();
 		int cont0 = 0, cont1 = 0, cont2 = 0, cont3 = 0;
@@ -113,84 +109,56 @@ public class ValorMao {
 				cont3++;
 			}
 		}
-		if((cont0 >= 5)||(cont1 >= 5)||(cont2 >= 5)||(cont3 >= 5)){
-			return "flush";
-		}else{
-			return "nao";
-		}
+		return((cont0 >= 5)||(cont1 >= 5)||(cont2 >= 5)||(cont3 >= 5));
 	}
-	String checarQuadra(){
-		String result = "nao";
+
+	Boolean checarQuadra(){
+		int contQuadra = contaNumerosIguais(4);
+		return (contQuadra == 1);
+	}
+
+	Boolean checarFullHouse(){
+		return(((checarTrinca())&&((checarDupla())||(checarDuasDuplas())))||(checarDuasTrincas()));
+	}
+
+	Boolean checarTrinca(){
+		int contTrinca = contaNumerosIguais(3);
+		return (contTrinca == 1);
+	}
+
+	Boolean checarDuasTrincas(){
+		int contTrinca = contaNumerosIguais(3);
+		return (contTrinca == 2);
+	}
+
+	Boolean checarDuasDuplas(){
+		int contDupla = contaNumerosIguais(2);
+		return((contDupla == 2)||(contDupla == 3));//||(contDupla == 3)
+	}
+
+	Boolean checarDupla(){
+		int contDupla = contaNumerosIguais(2);
+		return (contDupla == 1);
+	}
+
+	int contaNumerosIguais(int n){
 		int[] a = new int[7];
 		int[] cont = new int[13];
+		int contNumero = 0;
 		a = arrayNumeroCarta();
 		for(int j = 0; j < 13; j++){
-			for(int i = 0; i < 5; i++){
-				if (a[i] == j+1) cont[j]++;
-			}
-			if(cont[j] == 4) result = "quadra";
-		}
-		return result;
-	}
-	String checarFullHouse(){
-		String result = "nao";
-		if((checarTrinca().equals("trinca"))&&((checarDupla().equals("dupla"))||(checarDuasDuplas().equals("duasDuplas")))){
-			result = "fullHouse";
-		}
-		return result;
-	}
-	String checarTrinca(){
-		String result = "nao";
-		int[] a = new int[7];
-		int[] cont = new int[13];
-		a = arrayNumeroCarta();
-		for(int j = 0; j < 13; j++){
-			for(int i = 0; i < 5; i++){
-				if (a[i] == j+1) cont[j]++;
-			}
-			if(cont[j] == 3) result = "trinca";
-		}
-		return result;
-	}
-	String checarDuasDuplas(){
-		String result = "nao";
-		int[] a = new int[7];
-		int[] cont = new int[13];
-		int contDupla = 0;
-		a = arrayNumeroCarta();
-		for(int j = 0; j < 13; j++){
-			for(int i = 0; i < 5; i++){
+			for(int i = 0; i < 7; i++){
 				if (a[i] == j+1) cont[j]++;
 			}
 		}
 		for(int i = 0; i < 13; i++){
-			if(cont[i] >= 2)contDupla++;
+			if(cont[i] == n)contNumero++;
 		}
-		if (contDupla == 2){
-			result = "duasDuplas";
-		}
-		return result;
+		return contNumero;
+
 	}
-	String checarDupla(){
-		String result = "nao";
-		int[] a = new int[7];
-		int[] cont = new int[13];
-		int contDupla = 0;
-		a = arrayNumeroCarta();
-		for(int j = 0; j < 13; j++){
-			for(int i = 0; i < 5; i++){
-				if (a[i] == j+1) cont[j]++;
-			}
-		}
-		for(int i = 0; i < 13; i++){
-			if(cont[i] == 2)contDupla++;
-		}
-		if (contDupla == 1){
-			result = "dupla";
-		}
-		return result;
-	}
-	String checarSequencia(){
+
+	Boolean checarSequencia(){
 		int[] a = new int[7];
 		a = arrayNumeroCarta();
 		Arrays.sort(a);
@@ -204,12 +172,37 @@ public class ValorMao {
 		for(int i = 2; i < 6; i++){
 			if (a[i + 1] - a[i] == 1) cont3++;
 		}
-		if((cont1 == 4)||(cont2 == 4)||(cont3 == 4)){
-			return "sequencia";
+		return((cont1 == 4)||(cont2 == 4)||(cont3 == 4));
+	}
+
+	int checarMaiorSequencia(){
+		int[] a = new int[7];
+		int s1 = 0, s2 = 0, s3 = 0;
+		a = arrayNumeroCarta();
+		Arrays.sort(a);
+		int cont1 = 0, cont2 = 0, cont3 = 0;
+		for(int i = 0; i < 4; i++){
+			if (a[i + 1] - a[i] == 1) cont1++;
+			if(cont1 == 4)s1 = a[4];
+		}
+		for(int i = 1; i < 5; i++){
+			if (a[i + 1] - a[i] == 1) cont2++;
+			if(cont2 == 4)s2 = a[5];
+		}
+		for(int i = 2; i < 6; i++){
+			if (a[i + 1] - a[i] == 1) cont3++;
+			if(cont3 == 4)s3 = a[6];
+		}
+		if((s2>s1)&&(s2>s3)){
+			return s2;
+		}else if((s1>s2)&&(s1>s3)){
+			return s1;
 		}else{
-			return "nao";
+			return s3;
 		}
 	}
+
+
 	int[] arrayNumeroCarta(){
 		int[] mao = new int[7];
 		for(int i = 0; i < 7; i++){
@@ -231,6 +224,7 @@ public class ValorMao {
 		}
 		return mao;
 	}
+
 	String[] arrayNaipeCarta(){
 		String[] mao = new String[7];
 		for(int i = 0; i < 7; i++){
@@ -242,4 +236,5 @@ public class ValorMao {
 		}
 		return mao;
 	}
+
 }
