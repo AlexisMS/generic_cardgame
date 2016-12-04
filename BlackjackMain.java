@@ -50,6 +50,7 @@ class BlackjackMain implements ActionListener {
 	    JPanel cardDealer = new JPanel();
 
 	    JButton b;
+	    JButton ret;
 	    JLabel left = new JLabel("DEALER");
 	    JLabel right = new JLabel("YOU");
 	    JButton end = new JButton("STOP");
@@ -72,8 +73,10 @@ class BlackjackMain implements ActionListener {
 	    cardDealer.add(card5d);
 	    blackjack.add(buttons,BorderLayout.PAGE_END);
 	    buttons.add(b=new JButton("play"));
+	    buttons.add(ret=new JButton("menu"));
 
-	    b.addActionListener(new Action(buttons,card1,card2,card3,card4,card5, card1d,card2d,card3d,card4d,card5d, left,right,r,b,end,tela,rules));
+	    b.addActionListener(new Action(buttons,card1,card2,card3,card4,card5, card1d,card2d,card3d,card4d,card5d, left,right,r,b,end,blackjack,rules));
+	    ret.addActionListener(new Return(cardLayout,tela));
 	    tela.add(blackjack, "blackjack");
 	    cardLayout.show(tela, "blackjack");
 	    tela.repaint();
