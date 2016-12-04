@@ -7,19 +7,28 @@ import java.io.PrintWriter;
 
 class BlackjackMain implements ActionListener {
 
+	CardLayout cardLayout;
 	JPanel tela;
-	JPanel options;
-	JLabel title;
+	// JPanel options;
+	// JLabel title;
 
-	BlackjackMain(JPanel tela, JPanel options, JLabel title){
-		this.tela=tela;
-		this.options=options;
-		this.title = title;
+	// BlackjackMain(JPanel tela, JPanel options, JLabel title){
+	// 	this.tela=tela;
+	// 	this.options=options;
+	// 	this.title = title;
+	// }
+
+	BlackjackMain(JPanel tela, CardLayout cardLayout){
+		this.tela = tela;
+		this.cardLayout = cardLayout;
 	}
 
 	public void actionPerformed(ActionEvent e){
-		tela.remove(options);
-		tela.remove(title);
+		//tela.remove(options);
+		//tela.remove(title);
+		JPanel blackjack = new JPanel();
+		blackjack.setLayout(new BorderLayout(10,10));
+
 		JPanel playarea = new JPanel();
 	  	playarea.setLayout(new BorderLayout(10,10));
 
@@ -47,7 +56,7 @@ class BlackjackMain implements ActionListener {
 	    Blackjack rules = new Blackjack();
 
 	    //tela.setLayout(new BorderLayout(10,10));
-	    tela.add(playarea,BorderLayout.CENTER);
+	    blackjack.add(playarea,BorderLayout.CENTER);
 	    playarea.add(r,BorderLayout.CENTER);
 	    playarea.add(centerhand,BorderLayout.PAGE_END);
 	    playarea.add(cardDealer,BorderLayout.PAGE_START);
@@ -61,10 +70,12 @@ class BlackjackMain implements ActionListener {
 	    cardDealer.add(card3d);
 	    cardDealer.add(card4d);
 	    cardDealer.add(card5d);
-	    tela.add(buttons,BorderLayout.PAGE_END);
+	    blackjack.add(buttons,BorderLayout.PAGE_END);
 	    buttons.add(b=new JButton("play"));
 
 	    b.addActionListener(new Action(buttons,card1,card2,card3,card4,card5, card1d,card2d,card3d,card4d,card5d, left,right,r,b,end,tela,rules));
+	    tela.add(blackjack, "blackjack");
+	    cardLayout.show(tela, "blackjack");
 	    tela.repaint();
 	}
 }

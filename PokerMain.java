@@ -5,32 +5,28 @@ import java.io.PrintWriter;
 
 class PokerMain implements ActionListener {
 
+	CardLayout cardLayout;
 	JPanel tela;
-	JPanel options;
-	JLabel title;
+	// JPanel options;
+	// JLabel title;
 
-	PokerMain(JPanel tela, JPanel options, JLabel title){
+	// PokerMain(JPanel tela, JPanel options, JLabel title){
+	// 	this.tela = tela;
+	// 	this.options = options;
+	// 	this.title = title;
+	// }
+
+	PokerMain(JPanel tela, CardLayout cardLayout){
 		this.tela = tela;
-		this.options = options;
-		this.title = title;
+		this.cardLayout = cardLayout;
 	}
 
-	// public static void main (String[] args){
-	// 	JFrame f;
-	//     f = new JFrame();
-	//     JPanel tela;
-	//     tela = new JPanel();
-
-	//     f.setContentPane(tela);
-	//     configTela(tela);
-	//     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	//     f.setSize(1600,600); //lar x alt
-	//     f.setVisible(true);
-	// 	}
 
 	public void actionPerformed(ActionEvent e){
-		tela.remove(options);
-		tela.remove(title);
+		// tela.remove(options);
+		// tela.remove(title);
+		JPanel poker = new JPanel();
+
 		JPanel playarea = new JPanel();
 	  	playarea.setLayout(new BorderLayout(10,10));
 
@@ -57,8 +53,8 @@ class PokerMain implements ActionListener {
 	    JButton end = new JButton("STOP");
 	    Rules rules = new Rules();
 
-	    tela.setLayout(new BorderLayout(10,10));
-	    tela.add(playarea,BorderLayout.CENTER);
+	    poker.setLayout(new BorderLayout(10,10));
+	    poker.add(playarea,BorderLayout.CENTER);
 	    playarea.add(r,BorderLayout.CENTER);
 	    playarea.add(centerhand,BorderLayout.PAGE_END);
 	    playarea.add(cardDealer,BorderLayout.PAGE_START);
@@ -72,12 +68,14 @@ class PokerMain implements ActionListener {
 	    cardDealer.add(card3d);
 	    cardDealer.add(card4d);
 	    cardDealer.add(card5d);
-	    tela.add(buttons,BorderLayout.PAGE_END);
+	    poker.add(buttons,BorderLayout.PAGE_END);
 	    buttons.add(b=new JButton("play"));
 
 
 		b.addActionListener(new PokerStep(buttons,card1,card2,card3,card4,card5, card1d,card2d,card3d,card4d,card5d,left,right,r,b,end,tela,rules));
 
+		tela.add(poker, "poker");
+		cardLayout.show(tela,"poker");
 		tela.repaint();
 	}
 }
