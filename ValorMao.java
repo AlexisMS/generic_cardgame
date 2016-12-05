@@ -1,6 +1,5 @@
 //this file was written by Valdivino Morais
 
-//package poker;
 
 import java.util.*;
 
@@ -11,7 +10,6 @@ public class ValorMao {
 	String[] carta = {"Ac", "1d", "2h", "3s", "4c", "5d", "6h"};
 
 
-//mudar
 	public ValorMao(ArrayList<String> cartaLista) {
 		this.reset(cartaLista);
 	}

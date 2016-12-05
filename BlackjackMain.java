@@ -1,4 +1,3 @@
-//package generic_cardgame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,14 +8,7 @@ class BlackjackMain implements ActionListener {
 
 	CardLayout cardLayout;
 	JPanel tela;
-	// JPanel options;
-	// JLabel title;
 
-	// BlackjackMain(JPanel tela, JPanel options, JLabel title){
-	// 	this.tela=tela;
-	// 	this.options=options;
-	// 	this.title = title;
-	// }
 
 	BlackjackMain(JPanel tela, CardLayout cardLayout){
 		this.tela = tela;
@@ -24,8 +16,6 @@ class BlackjackMain implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e){
-		//tela.remove(options);
-		//tela.remove(title);
 		JPanel blackjack = new JPanel();
 		blackjack.setLayout(new BorderLayout(10,10));
 
@@ -56,7 +46,6 @@ class BlackjackMain implements ActionListener {
 	    JButton end = new JButton("STOP");
 	    Blackjack rules = new Blackjack();
 
-	    //tela.setLayout(new BorderLayout(10,10));
 	    blackjack.add(playarea,BorderLayout.CENTER);
 	    playarea.add(r,BorderLayout.CENTER);
 	    playarea.add(centerhand,BorderLayout.PAGE_END);

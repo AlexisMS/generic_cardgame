@@ -1,4 +1,3 @@
-//package generic_cardgame;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -32,7 +31,7 @@ class Deck {
 	void resetDeck(){
 		cards.clear();
 		cards.trimToSize();
-		cards.add("Ac"); //welp, there's probably a better way to do this. But time is running out and I have bigger problems.
+		cards.add("Ac"); //welp, there's probably a better way to do this.
 	    cards.add("2c");
 	    cards.add("3c");
 	    cards.add("4c");

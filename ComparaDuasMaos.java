@@ -1,6 +1,5 @@
 //this file was written by Valdivino Morais
 
-//package poker;
 
 public class ComparaDuasMaos {
 	String mao1 = "", mao2 = "";

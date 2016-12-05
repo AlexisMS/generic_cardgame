@@ -19,8 +19,6 @@ class Main {
 		}
 
 	static void configTela(JPanel tela){
-		//JPanel menu = new JPanel();
-		//menu.setLayout(new BorderLayout(10,10));
 		CardLayout cardLayout = new CardLayout();
 		tela.setLayout(cardLayout);
 
@@ -37,8 +35,6 @@ class Main {
 		JButton b_poker = new JButton("POKER");
 		b_blackjack.addActionListener(new BlackjackMain(tela, cardLayout));
 		b_poker.addActionListener(new PokerMain(tela, cardLayout));
-		//b_blackjack.addActionListener(new BlackjackMain(tela,options,title));
-		//b_poker.addActionListener(new PokerMain(tela,options,title));
 		options.add(b_blackjack);
 		options.add(b_poker);
 		menu.add(options, BorderLayout.PAGE_END);

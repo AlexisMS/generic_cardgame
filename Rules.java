@@ -1,4 +1,3 @@
-//package generic_cardgame;
 
 import java.util.*;
 
@@ -25,7 +24,6 @@ class Rules{
 		this.setup();
 	}
 
-	//@Override
 	void setup(){
 		first = true;
 		player = new Player();

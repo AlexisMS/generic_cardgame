@@ -7,14 +7,7 @@ class PokerMain implements ActionListener {
 
 	CardLayout cardLayout;
 	JPanel tela;
-	// JPanel options;
-	// JLabel title;
 
-	// PokerMain(JPanel tela, JPanel options, JLabel title){
-	// 	this.tela = tela;
-	// 	this.options = options;
-	// 	this.title = title;
-	// }
 
 	PokerMain(JPanel tela, CardLayout cardLayout){
 		this.tela = tela;
@@ -23,8 +16,6 @@ class PokerMain implements ActionListener {
 
 
 	public void actionPerformed(ActionEvent e){
-		// tela.remove(options);
-		// tela.remove(title);
 		JPanel poker = new JPanel();
 
 		JPanel playarea = new JPanel();

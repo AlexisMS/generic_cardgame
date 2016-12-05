@@ -1,4 +1,3 @@
-//package generic_cardgame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,7 +62,7 @@ class EndGame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e){
 		buttons.remove(end);
-		buttons.remove(b); //temp
+		buttons.remove(b);
 		while (rules.getDealerScore()<17){
 			rules.dealerHit();
 			dealerhandsize++;

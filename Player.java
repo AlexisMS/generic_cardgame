@@ -1,4 +1,3 @@
-//package generic_cardgame;
 
 import java.util.*;
 

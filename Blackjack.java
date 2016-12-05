@@ -1,9 +1,7 @@
-//package generic_cardgame;
-
 import java.util.*;
 
 class Blackjack{
-//class Blackjack implements GameRules{
+
 
 	boolean gameover;
 	Player player;
@@ -14,7 +12,7 @@ class Blackjack{
 		this.setup();
 	}
 
-	//@Override
+
 	void setup(){
 		gameover = false;
 		player = new Player();
@@ -25,7 +23,6 @@ class Blackjack{
 	void reset(){
 		player.resetHand();
 		player.resetScore();
-		//player.defeat();
 		dealer.resetHand();
 		dealer.resetScore();
 		deck.resetDeck();
@@ -47,7 +44,7 @@ class Blackjack{
 		return dealer.getHandList();
 	}
 
-	//@Override
+
 	int score(int score, ArrayList<String> playerhand){
 		int new_score = 0;
 		ArrayList<String> hand = playerhand;
@@ -104,28 +101,6 @@ class Blackjack{
 		return (new_score - score);
 	}
 
-	//@Override
-	//void endgame(boolean mode){ //mode parameter: true if it's necessary to check the dealer's score, false if it's not
-/*		if (mode){
-			while (dealer.getScore()<17){
-				dealer.addHand(deck.drawCard());
-				dealer.addScore(this.score(dealer.getScore(),dealer.getHandList()));
-			}
-			if ((dealer.getScore()>21) && (player.getScore()<=21))
-				//player.victory();
-			else if (dealer.getScore() < player.getScore())
-				//player.victory();
-			else if (dealer.getScore() > player.getScore())
-				//player.defeat();
-		}
-		else {
-			if(player.getScore()==21)
-				//player.victory();
-			else if (player.getScore()>21)
-				//player.defeat();
-		}
-		//return player.getStatus();*/
-	//}
 
 	void playerHit(){
 		player.addHand(deck.drawCard());

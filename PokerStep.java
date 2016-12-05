@@ -63,8 +63,6 @@ class PokerStep implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e){
-		//buttons.remove(end);
-		//buttons.remove(b); //temp
 		rules.reset();
 		rules.setup();
 		dealerhand = rules.getDealerHand();
@@ -92,7 +90,6 @@ class PokerStep implements ActionListener{
 			}
 			currentcard++;
 		}
-		//dealerhandsize = 1;
 		currentcard = 0;
 
     cardback = new ImageIcon("img/capa2.png");
@@ -115,7 +112,6 @@ class PokerStep implements ActionListener{
 					card5.setIcon(imagemCarta);
 					break;
 				case 4:
-					//card5.setIcon(imagemCarta);
 					break;
 				default:
 					break;
