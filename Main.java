@@ -14,7 +14,7 @@ class Main {
 	    f.setContentPane(tela);
 	    configTela(tela);
 	    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    f.setSize(1600,600); //lar x alt
+	    f.setSize(1200,600); //lar x alt
 	    f.setVisible(true);
 		}
 
